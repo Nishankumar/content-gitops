@@ -1,22 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: hello
+  name: nginx-deployment
   namespace: lasample
   labels:
-    app: myapp
+    app: nginx
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: myapp
+      app: nginx
   template:
     metadata:
       labels:
-        app: myapp
+        app: nginx
     spec:
       containers:
       - name: nginx
-        image: nishankumar1999/gitops:hellov1.1
+        image: nginx:1.7.9
         ports:
         - containerPort: 80
